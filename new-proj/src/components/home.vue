@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container grid-list-md id="main"> 
     <v-flex xs12>
       <v-card
         color="grey lighten-4"
@@ -15,6 +15,9 @@
           <v-btn icon>
             <v-icon>favorite</v-icon>
           </v-btn>
+       
+          <MyLoginForm/>
+
           <v-btn icon>
             <v-icon>more_vert</v-icon>  
           </v-btn>
@@ -26,7 +29,7 @@
           </v-layout>
         </v-card-media>
       </v-card>
-    </v-flex>
+    </v-flex> <br/>
     <v-flex xs12>
       <v-layout row wrap>
         <v-flex xs8>
@@ -65,12 +68,18 @@
 </template>
 
 <script>
-export default {
-  name: 'home',
-  data () {
-    return {
-      
+
+  import MyLoginForm from './login.vue'
+
+  export default {
+    name: 'home',
+    components: {
+      MyLoginForm
+    },
+    data () {
+      return {
+        dialog: false
+      }
     }
   }
-}
 </script>
