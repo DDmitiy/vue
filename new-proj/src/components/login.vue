@@ -71,6 +71,6 @@
 
 <style scoped>
   #auth_form{
-    padding-top: 20%;
+    vertical-align:middle;
   }
 </style>
