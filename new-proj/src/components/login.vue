@@ -1,28 +1,27 @@
 <template>
   <v-container fluid fill-height id="auth_form"> 
   <v-layout align-center justify-center>  
-    <v-card style="height: auto; width: 400px;" data-ripple="false">
+    <v-card  
+      data-ripple="false"
+      color='primary'
+      style="height: auto; width: 400px;"
+    >
     <v-flex pa-5>
   <v-form v-model="valid" ref="form" novalidate>
     <v-text-field
-      input-group
-      primary-text
       label="Username"
       v-model="name"
       :rules="nameRules"
       required
     ></v-text-field>
     <v-text-field
-      input-group
-      primary-text
       label="Password"
-      hint="At least 8 characters"
       v-model="password"
       min="8"
-      :append-icon="e1 ? 'visibility' : 'visibility_off'"
-      :append-icon-cb="() => (e1 = !e1)"
+      :rules="passRules"
       :type="e1 ? 'password' : 'text'"
       counter
+      required
     ></v-text-field>
 
     <v-btn
@@ -51,6 +50,10 @@
       ],
       password: '',
       e1: true,
+      passRules: [
+        v => !!v || 'Password is required',
+        v => (v && v.length >= 8) || "At least 8 characters",
+      ],
     }),
     methods: {
       submit () {
@@ -71,6 +74,6 @@
 
 <style scoped>
   #auth_form{
-    vertical-align:middle;
+    padding-top: 10%;
   }
 </style>
