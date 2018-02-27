@@ -15,8 +15,10 @@
           <v-btn icon>
             <v-icon>favorite</v-icon>
           </v-btn>
-       
-          <MyLoginForm/>
+
+          <MyLoginForm>
+            <v-title text-xs-center style="font-size: 24px; font-weight: 500">{{date}}</v-title>
+          </MyLoginForm>
 
           <v-btn icon>
             <v-icon>more_vert</v-icon>  
@@ -78,7 +80,7 @@
     },
     data () {
       return {
-        dialog: false
+        date: new Date
       }
     }
   }

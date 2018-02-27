@@ -1,7 +1,11 @@
-<template>
+<template slot-scope="props">
   <v-dialog v-model='dialog' attach='#app' max-width="400px">
-    <v-btn slot='activator'>Sign in</v-btn>
+    <v-btn slot='activator'>Sign in {{greeting}}</v-btn>
     <v-form v-model="valid" ref="form" novalidate id='auth_form'>
+      <slot>
+        <v-title text-xs-center style="font-size: 24px; font-weight: 500">Title</v-title>
+      </slot>
+
       <v-text-field
         label="Username"
         v-model="name"
@@ -21,7 +25,6 @@
       <v-btn
         @click="submit"
         :disabled="!valid"
-        style="padding-left:35%"
       >
         Sign in
       </v-btn>
